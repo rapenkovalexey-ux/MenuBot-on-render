@@ -1,0 +1,22 @@
+# Конфигурация для Koyeb (опционально — можно настроить через UI)
+name: menu-bot
+services:
+  - name: bot
+    type: worker
+    git:
+      repository: github.com/YOUR_USERNAME/YOUR_REPO
+      branch: main
+    build:
+      buildpack:
+        build_command: pip install -r requirements.txt
+    run:
+      command: python main.py
+    env:
+      - key: BOT_TOKEN
+        value: "SET_IN_KOYEB_DASHBOARD"
+      - key: GROQ_API_KEY
+        value: "SET_IN_KOYEB_DASHBOARD"
+      - key: TURSO_DATABASE_URL
+        value: "SET_IN_KOYEB_DASHBOARD"
+      - key: TURSO_AUTH_TOKEN
+        value: "SET_IN_KOYEB_DASHBOARD"
